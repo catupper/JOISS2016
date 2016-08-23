@@ -86,18 +86,6 @@ struct BigI{
 	inline const BigI operator+(const BigI& rhs)const{
 		return BigI(*this)+=rhs;
 	}
-	inline BigI& operator+=(const int& rhs){
-		uint128 last=rhs;
-		REP(i,IntegerNum){
-			last+=data[i];
-			data[i]=last&(~0ULL);
-			last>>=64;
-		}
-		return *this;
-	}
-	inline const BigI operator+(const int& rhs)const{
-		return BigI(*this)+=rhs;
-	}
 	inline BigI& changeNeg(){
 		REP(i,IntegerNum)
 			data[i]=~data[i];
@@ -113,18 +101,10 @@ struct BigI{
 	inline const BigI operator-(const BigI& rhs)const{
 		return BigI(*this)-=rhs;
 	}
-	inline BigI& operator-=(const int& rhs){
-		BigI tmp=rhs;
-		tmp.changeNeg();
-		return operator+=(tmp);
-	}
-	inline const BigI operator-(const int& rhs)const{
-		return BigU(*this)-=rhs;
-	}
-	BigI& operator*=(const BigI& rhs){
+	inline BigI& operator*=(const BigI& rhs){
 		return *this=*this*rhs;
 	}
-	const BigI operator*(const BigI& rhs)const{
+	inline const BigI operator*(const BigI& rhs)const{
 		BigI res;
 		REP(i,IntegerNum){
 			uint128 last=0,p=rhs.data[i];
