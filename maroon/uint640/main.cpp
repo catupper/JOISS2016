@@ -99,6 +99,12 @@ struct BigU{
 		}
 		return res;
 	}
+	static BigU randBigU(){
+		BigU res;
+		REP(i,IntegerNum)
+			res.data[i]=(ull(uint(rand()))<<32)+uint(rand());
+		return res;
+	}
 };
 
 ostream& operator<<(ostream& os,const uint128& rhs){
@@ -114,10 +120,9 @@ ostream& operator<<(ostream& os,const BigU<IntrgerSize>& rhs){
 	return os;
 }
 
+using uint640=BigU<640>;
+
 int main(){
-	uint128 a=0x1001002002002;
-	cout<<a<<endl;
-	using uint640=BigU<640>;
-	uint640 b=a;
-	cout<<b*b<<endl;
+	srand(clock());
+	cout<<uint640::randBigU()<<endl;
 }
