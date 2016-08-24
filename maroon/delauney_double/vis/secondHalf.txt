@@ -1,0 +1,7 @@
+STRINGFY(
+
+		</script>
+	</body>
+</html>
+
+)

@@ -1,0 +1,46 @@
+STRINGFY(
+
+<!DOCTYPE HTML>
+<html lang="ja-JP">
+	<head>
+		<meta charset="UTF-8">
+		<title>Vis</title>
+	</head>
+	<body>
+		<canvas id="first" width=width_undefined height=height_undefined></canvas>
+		<script type="text/javascript">
+		
+var canvas = document.getElementById('first');
+var ctx = canvas.getContext('2d');
+ctx.font='font_size_undefinedpx Arial';
+
+function DrawLine(fx,fy,tx,ty,w,col){
+	ctx.lineWidth=w;
+	ctx.strokeStyle=col;
+	ctx.beginPath();
+	ctx.moveTo(fx, fy);
+	ctx.lineTo(tx, ty);
+	ctx.stroke();
+}
+
+function DrawCircle(x,y,r,col){
+	ctx.fillStyle=col;
+	ctx.beginPath();
+	ctx.arc(x,y,r,0,Math.PI*2,true);
+	ctx.fill();
+}
+
+function DrawCircleLine(x,y,r,w,col){
+	ctx.lineWidth=w;
+	ctx.strokeStyle=col;
+	ctx.beginPath();
+	ctx.arc(x,y,r,0,Math.PI*2,true);
+	ctx.stroke();
+}
+
+function DrawText(txt,x,y,col){
+	ctx.fillStyle=col;
+	ctx.fillText(txt,x,y);
+}
+
+)
