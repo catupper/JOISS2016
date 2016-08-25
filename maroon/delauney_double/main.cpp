@@ -257,7 +257,7 @@ void TreeShow(NP ptr){
 		TreeShow(ptr->r);
 }
 
-void BuildDelauney(int n){
+void BuildDelaunay(int n){
 	using pi=pair<Pos,int>;
 	vector<pi> tops;
 	REP(i,n)
@@ -315,7 +315,7 @@ int main(){
 		sites[i].y=read();
 		vMax=max({vMax,double(abs(sites[i].x)),double(abs(sites[i].y))});
 	}
-	BuildDelauney(n);
+	BuildDelaunay(n);
 	vMax*=1.05;
 	
 	const double xMax=vMax;
